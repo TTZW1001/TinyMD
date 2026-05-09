@@ -1,0 +1,26 @@
+node_modules/
+.expo/
+.idea/
+.gradle/
+dist/
+build-export/
+release-apk/
+web-build/
+npm-debug.log*
+.DS_Store
+
+# Android local / build outputs
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# Release / test artifacts
+*.apk
+*.aab
+*.hbc
+*.hbc.*
+tinymd
+tinymd-preview.html
+Claude-Design.md
+eas.json
