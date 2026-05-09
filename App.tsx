@@ -10,9 +10,11 @@ import {
   Alert,
   Animated,
   Easing,
+  Image,
   KeyboardAvoidingView,
   Keyboard,
   LayoutAnimation,
+  Linking,
   Modal,
   NativeSyntheticEvent,
   Platform,
@@ -60,6 +62,8 @@ type PersistedState = {
 };
 
 const APP_VERSION = "1.1.0";
+const PROJECT_URL = "https://github.com/TTZW1001/TinyMD";
+const GITHUB_MARK_URL = "https://github.githubassets.com/favicons/favicon-dark.png";
 
 const CHANGELOG_ITEMS = [
   "默认文档调整为《TinyMD使用指南》，首开内容更清晰。",
@@ -951,6 +955,16 @@ export default function App() {
               ))}
             </View>
           </View>
+          <Pressable
+            style={styles.projectFooter}
+            onPress={() => Linking.openURL(PROJECT_URL).catch(() => undefined)}
+          >
+            <Image
+              source={{ uri: GITHUB_MARK_URL }}
+              style={styles.projectFooterIcon}
+            />
+            <Text style={styles.projectFooterText}>Made by TTZW1001</Text>
+          </Pressable>
         </ScrollView>
       ) : null}
       <Modal
@@ -1523,6 +1537,24 @@ function createStyles(palette: Palette, topInset: number) {
     },
     changelogText: {
       flex: 1,
+      color: palette.textMuted,
+      fontSize: 13,
+      lineHeight: 20,
+    },
+    projectFooter: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 10,
+      paddingTop: 2,
+      paddingBottom: 6,
+    },
+    projectFooterIcon: {
+      width: 18,
+      height: 18,
+      opacity: 0.9,
+    },
+    projectFooterText: {
       color: palette.textMuted,
       fontSize: 13,
       lineHeight: 20,
